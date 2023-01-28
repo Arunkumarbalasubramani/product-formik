@@ -1,3 +1,32 @@
 .App {
+  background: linear-gradient(
+    to right top,
+    #e0449c,
+    #d243ad,
+    #be46bd,
+    #a34ccd,
+    #7e54db,
+    #5f62df,
+    #3d6cde,
+    #0074da,
+    #007ec6,
+    #0081a9,
+    #22808c,
+    #547c79
+  );
+  height: 100vh;
+}
+.heading {
+  padding: 2%;
   text-align: center;
+  color: whitesmoke;
+}
+.list-container {
+  padding: 2%;
+}
+.addNew-Button {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 2%;
 }
