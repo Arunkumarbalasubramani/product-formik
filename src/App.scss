@@ -30,3 +30,23 @@
 
   padding: 2%;
 }
+.add-product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.add-product-form {
+  width: 80%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2%;
+  border-radius: 14px;
+}
+.label {
+  font-size: 20px;
+  color: whitesmoke;
+  font-weight: 600;
+}
+.input {
+}

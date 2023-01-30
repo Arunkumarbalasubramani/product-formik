@@ -11,6 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
 const columns = [
   { id: "productName", label: "Product Name", minWidth: 170 },
   { id: "productID", label: "Product ID", minWidth: 100 },
@@ -98,10 +99,21 @@ const List = ({ productData }) => {
                       })}
                       <TableCell>
                         <Tooltip title="Edit Details" arrow>
-                          <IconButton>
+                          <IconButton size="large">
                             <EditIcon
                               onClick={() => {
                                 navigate(`/products/edit/${row.id}`);
+                              }}
+                            />
+                          </IconButton>
+                        </Tooltip>
+                      </TableCell>
+                      <TableCell>
+                        <Tooltip title="Delete Data" arrow>
+                          <IconButton size="large">
+                            <DeleteIcon
+                              onClick={() => {
+                                navigate(`/products/delete/${row.id}`);
                               }}
                             />
                           </IconButton>
