@@ -5,6 +5,7 @@ import {
   DeleteProduct,
   AddProduct,
   EditProduct,
+  InterPage,
 } from "./components/exports";
 
 function App() {
@@ -13,12 +14,13 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<ProductsList />} />
-          <Route path="/products/edit/:productID" element={<EditProduct />} />
+          <Route path="/products/edit/:productId" element={<EditProduct />} />
           <Route path="/products/add" element={<AddProduct />} />
           <Route
-            path="/products/delete/:productID"
+            path="/products/delete/:productId"
             element={<DeleteProduct />}
           />
+          <Route path="/products/add/success" element={<InterPage />} />
         </Routes>
       </div>
     </BrowserRouter>

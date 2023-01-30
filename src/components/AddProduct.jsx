@@ -31,7 +31,7 @@ const AddProduct = () => {
   const addNewProduct = async (newProduct) => {
     axios
       .post(`https://63d4ac100e7ae91a00a0aac3.mockapi.io/products`, newProduct)
-      .then(() => navigate("/"));
+      .then(() => navigate("/products/add/success"));
   };
 
   const { handleSubmit, values, handleChange, handleBlur, touched, errors } =

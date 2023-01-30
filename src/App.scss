@@ -48,5 +48,17 @@
   color: whitesmoke;
   font-weight: 600;
 }
-.input {
+.delete-page-container,
+.inter-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.inter-page-container {
+  flex-direction: column;
+}
+.action-btn {
+  display: flex;
+  justify-content: flex-end;
 }
