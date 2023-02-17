@@ -19,7 +19,7 @@ const editProductValidationSchema = yup.object({
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(6, " Must be Six Digits")
     .max(6, " Must be Six Digits"),
-  warhouse: yup.string().required("Fill Which Department it is allocated "),
+  department: yup.string().required("Fill Which Department it is allocated "),
   stock: yup
     .string("Must be only digits")
     .matches(/^[0-9]+$/, "Must be only digits"),
@@ -29,11 +29,13 @@ const editProductValidationSchema = yup.object({
 const EditProduct = () => {
   const { productId } = useParams();
   const [productData, setProductData] = useState([]);
+
   useEffect(() => {
     const getEditData = async () => {
       const response = await axios.get(
         `https://63d4ac100e7ae91a00a0aac3.mockapi.io/products/${productId}`
       );
+
       setProductData(response.data);
     };
     getEditData();
@@ -41,23 +43,30 @@ const EditProduct = () => {
 
   const navigate = useNavigate();
   const editProduct = async (editData) => {
-    axios
-      .put(
-        `https://63d4ac100e7ae91a00a0aac3.mockapi.io/products/${productId}`,
-        editData
-      )
-      .then(() => navigate("/"));
+    // axios
+    //   .put(
+    //     `https://63d4ac100e7ae91a00a0aac3.mockapi.io/products/${productId}`,
+    //     editData
+    //   )
+    //   .then(() => navigate("/"));
+    console.log(editData);
   };
-
-  const { handleSubmit, values, handleChange, handleBlur, touched, errors } =
+  console.log(productData);
+  const { handleSubmit, handleChange, values, handleBlur, touched, errors } =
     useFormik({
       initialValues: {
-        productName: productData.productName,
-        productID: productData.productID,
-        hsncode: productData.hsncode,
-        department: productData.department,
-        stock: productData.stock,
-        warhouse: productData.warhouse,
+        productName: "Nut and Bolt",
+        productID: "1234",
+        hsncode: "123456",
+        department: "Manufacturing",
+        stock: "89",
+        warhouse: "Chennai",
+        // productName: "Nut and Bolt",
+        // productID: productData.productID,
+        // hsncode: productData.hsncode,
+        // department: productData.department,
+        // stock: productData.stock,
+        // warhouse: productData.warhouse,
       },
       validationSchema: editProductValidationSchema,
       onSubmit: (editData) => {
@@ -72,6 +81,7 @@ const EditProduct = () => {
           <Form.Label className="label">Product Name</Form.Label>
           <Form.Control
             type="text"
+            name="productName"
             placeholder="Enter Product Name"
             className="input"
             value={values.productName}
@@ -87,6 +97,7 @@ const EditProduct = () => {
         <Form.Group className="mb-3" controlId="productID">
           <Form.Label className="label">Product Id</Form.Label>
           <Form.Control
+            name="productID"
             type="text"
             placeholder="Enter Product ID"
             value={values.productID}
@@ -102,6 +113,7 @@ const EditProduct = () => {
         <Form.Group className="mb-3" controlId="hsncode">
           <Form.Label className="label">HSN Code</Form.Label>
           <Form.Control
+            name="hsncode"
             type="text"
             placeholder="Enter HSN Code"
             value={values.hsncode}
@@ -117,6 +129,7 @@ const EditProduct = () => {
         <Form.Group className="mb-3" controlId="department">
           <Form.Label className="label">Department</Form.Label>
           <Form.Control
+            name="department"
             type="text"
             placeholder="Enter Department"
             value={values.department}
@@ -132,6 +145,7 @@ const EditProduct = () => {
         <Form.Group className="mb-3" controlId="stock">
           <Form.Label className="label">Stocks Available</Form.Label>
           <Form.Control
+            name="stock"
             type="text"
             placeholder="Enter Available stock"
             value={values.stock}
@@ -146,6 +160,7 @@ const EditProduct = () => {
         <Form.Group className="mb-3" controlId="warhouse">
           <Form.Label className="label">Stored WareHouse</Form.Label>
           <Form.Control
+            name="warhouse"
             type="text"
             placeholder="Enter Warehouse City"
             value={values.warhouse}
