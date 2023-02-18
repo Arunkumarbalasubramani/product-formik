@@ -9,6 +9,7 @@ import {
 } from "./components/exports";
 
 function App() {
+  const edited = true;
   return (
     <BrowserRouter>
       <div className="App">
@@ -21,6 +22,10 @@ function App() {
             element={<DeleteProduct />}
           />
           <Route path="/products/add/success" element={<InterPage />} />
+          <Route
+            path="/products/edit/success"
+            element={<InterPage edited={edited} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
